@@ -51,14 +51,13 @@ module.exports = function(RED) {
         if (flag) { RED.nodes.addCredentials(n.id,{userid:this.userid, password:this.password, global:true}); }
         var node = this;
 
-        var smtpTransport = nodemailer.createTransport("SMTP",{
+        var smtpTransport = nodemailer.createTransport({
             //service: emailkey.service,
             // {
             //transport: 'SMTP',
             host: node.outserver,
             port: node.outport,
-            requiresAuth: true,
-            secureConnection: true,
+            secure: true
             //domains: [ 'gmail.com', 'googlemail.com' ],
             //},
             auth: {
